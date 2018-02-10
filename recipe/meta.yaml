@@ -15,7 +15,7 @@ source:
   sha256: bf50991055e9336cd6a110d711ae8a91a0551b96f9eaab5fef8c05f578006e1c
 
 build:
-  number: 0
+  number: 1
   rpaths:
     - lib/R/lib/
     - lib/
@@ -32,7 +32,7 @@ requirements:
     - r-base
     - r-gmp >=0.5_8
     - libgcc  # [not win]
-    - mpfr
+    - mpfr 3.1.*
 
 test:
   commands:
