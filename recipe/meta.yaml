@@ -30,6 +30,7 @@ requirements:
   host:
     - r-base
     - r-gmp >=0.5_8
+    - mpfr
   run:
     - r-base
     - r-gmp >=0.5_8
