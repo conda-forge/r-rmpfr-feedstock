@@ -1,6 +1,10 @@
 m2w64_c_compiler:
 - m2w64-toolchain
+mpfr:
+- '4'
 pin_run_as_build:
+  mpfr:
+    max_pin: x
   r-base:
     max_pin: x.x.x
 r_base:
