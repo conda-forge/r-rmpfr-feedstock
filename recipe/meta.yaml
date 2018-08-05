@@ -31,12 +31,10 @@ requirements:
     - r-base
     - r-gmp >=0.5_8
     - mpfr
-    - r-rmpfr
   run:
     - r-base
     - r-gmp >=0.5_8
     - mpfr
-    - r-rmpfr
 
 test:
   commands:
