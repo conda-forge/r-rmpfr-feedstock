@@ -1,6 +1,10 @@
 c_compiler:
 - toolchain_c
+mpfr:
+- '4'
 pin_run_as_build:
+  mpfr:
+    max_pin: x
   r-base:
     max_pin: x.x.x
 r_base:
