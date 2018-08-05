@@ -15,6 +15,7 @@ source:
   sha256: bf50991055e9336cd6a110d711ae8a91a0551b96f9eaab5fef8c05f578006e1c
 
 build:
+  merge_build_host: True  # [win]
   number: 1
   rpaths:
     - lib/R/lib/
@@ -23,16 +24,16 @@ build:
 # Suggests: MASS, polynom, sfsmisc (>= 1.0-20), Matrix
 requirements:
   build:
+    - posix                # [win]
+    - {{ compiler('c') }}        # [unix]
+    - {{ compiler('m2w64_c') }}  # [win]
+  host:
     - r-base
     - r-gmp >=0.5_8
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
   run:
     - r-base
     - r-gmp >=0.5_8
-    - libgcc  # [not win]
-    - mpfr 3.1.*
+    - mpfr
 
 test:
   commands:
@@ -48,7 +49,7 @@ about:
     is based on the GMP (GNU Multiple Precision) Library.
   license_family: GPL3
   license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win] 
+  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win]
 
 extra:
   recipe-maintainers:
