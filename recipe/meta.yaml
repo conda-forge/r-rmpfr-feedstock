@@ -1,4 +1,4 @@
-{% set version = '0.6-1' %}
+{% set version = '0.7-1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -10,12 +10,13 @@ package:
 source:
   fn: Rmpfr_{{ version }}.tar.gz
   url:
-    - https://cran.r-project.org/src/contrib/Rmpfr_{{ version }}.tar.gz
-    - https://cran.r-project.org/src/contrib/Archive/Rmpfr/Rmpfr_{{ version }}.tar.gz
-  sha256: bf50991055e9336cd6a110d711ae8a91a0551b96f9eaab5fef8c05f578006e1c
+    - {{ cran_mirror }}/src/contrib/Rmpfr_{{ version }}.tar.gz
+    - {{ cran_mirror }}/src/contrib/Archive/Rmpfr/Rmpfr_{{ version }}.tar.gz
+  sha256: 9b3021617a22b0710b0f1acc279290762317ff123fd9e8fd03f1449f4bbfe204
 
 build:
-  number: 2
+  merge_build_host: True  # [win]
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -23,33 +24,41 @@ build:
 # Suggests: MASS, polynom, sfsmisc (>= 1.0-20), Matrix
 requirements:
   build:
+    - {{ compiler('c') }}        # [not win]
+    - {{native}}toolchain        # [win]
+    - {{posix}}filesystem        # [win]
+    - {{posix}}sed               # [win]
+    - {{posix}}grep              # [win]
+    - {{posix}}autoconf
+    - {{posix}}automake          # [not win]
+    - {{posix}}automake-wrapper  # [win]
+    - {{posix}}pkg-config
+    - {{posix}}make
+    - {{posix}}coreutils         # [win]
+    - {{posix}}zip               # [win]
+
+  host:
     - r-base
     - r-gmp >=0.5_8
-    - posix                # [win]
-    - {{native}}toolchain  # [win]
-    - gcc                  # [not win]
+
   run:
     - r-base
+    - {{native}}gcc-libs         # [win]
     - r-gmp >=0.5_8
-    - libgcc  # [not win]
-    - mpfr 3.1.*
 
 test:
   commands:
-    - $R -e "library('Rmpfr')"  # [not win]
+    - $R -e "library('Rmpfr')"           # [not win]
     - "\"%R%\" -e \"library('Rmpfr')\""  # [win]
 
 about:
   home: http://rmpfr.r-forge.r-project.org/
   license: GPL (>= 2)
   summary: Arithmetic (via S4 classes and methods) for arbitrary precision floating point numbers,
-    including transcendental ("special") functions.  To this end, Rmpfr interfaces to
-    the LGPL'ed MPFR (Multiple Precision Floating-Point Reliable) Library which itself
-    is based on the GMP (GNU Multiple Precision) Library.
+    including transcendental ("special") functions.  To this end, the package interfaces
+    to the 'LGPL' licensed 'MPFR' (Multiple Precision Floating-Point Reliable) Library
+    which itself is based on the 'GMP' (GNU Multiple Precision) Library.
   license_family: GPL3
-  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'  # [unix]
-  license_file: '{{ environ["PREFIX"] }}\R\share\licenses\GPL-3'  # [win] 
-
 extra:
   recipe-maintainers:
     - dpryan79
@@ -58,3 +67,4 @@ extra:
     - bgruening
     - daler
     - jdblischak
+
