@@ -40,11 +40,13 @@ requirements:
   host:
     - r-base
     - r-gmp >=0.5_8
+    - mpfr
 
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
     - r-gmp >=0.5_8
+    - mpfr
 
 test:
   commands:
