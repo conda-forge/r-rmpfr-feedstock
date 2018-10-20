@@ -7,16 +7,16 @@ Package license: GPL (>= 2)
 
 Feedstock license: BSD 3-Clause
 
-Summary: Arithmetic (via S4 classes and methods) for arbitrary precision floating point numbers, including transcendental ("special") functions.  To this end, Rmpfr interfaces to the LGPL'ed MPFR (Multiple Precision Floating-Point Reliable) Library which itself is based on the GMP (GNU Multiple Precision) Library.
+Summary: Arithmetic (via S4 classes and methods) for arbitrary precision floating point numbers, including transcendental ("special") functions.  To this end, the package interfaces to the 'LGPL' licensed 'MPFR' (Multiple Precision Floating-Point Reliable) Library which itself is based on the 'GMP' (GNU Multiple Precision) Library.
 
 
 
 Current build status
 ====================
 
-[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-Rmpfr-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-Rmpfr-feedstock)
-[![OSX](https://img.shields.io/travis/conda-forge/r-Rmpfr-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-Rmpfr-feedstock)
-[![Windows](https://img.shields.io/appveyor/ci/conda-forge/r-Rmpfr-feedstock/master.svg?label=Windows)](https://ci.appveyor.com/project/conda-forge/r-Rmpfr-feedstock/branch/master)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/r-rmpfr-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/r-rmpfr-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/r-rmpfr-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/r-rmpfr-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
