@@ -17,7 +17,7 @@ source:
 # There's some sort of issue with the gmp library on Windows
 build:
   merge_build_host: True  # [win]
-  number: 1000
+  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
