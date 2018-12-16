@@ -1,5 +1,4 @@
 {% set version = '0.7-1' %}
-
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -8,22 +7,18 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: Rmpfr_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/Rmpfr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/Rmpfr/Rmpfr_{{ version }}.tar.gz
   sha256: 9b3021617a22b0710b0f1acc279290762317ff123fd9e8fd03f1449f4bbfe204
 
-# There's some sort of issue with the gmp library on Windows
 build:
   merge_build_host: True  # [win]
-  skip: True  # [win]
-  number: 1000
+  number: 1001
   rpaths:
     - lib/R/lib/
     - lib/
 
-# Suggests: MASS, polynom, sfsmisc (>= 1.0-20), Matrix
 requirements:
   build:
     - {{ compiler('c') }}        # [not win]
@@ -38,12 +33,10 @@ requirements:
     - {{posix}}make
     - {{posix}}coreutils         # [win]
     - {{posix}}zip               # [win]
-
   host:
     - r-base
     - r-gmp >=0.5_8
     - mpfr
-
   run:
     - r-base
     - {{native}}gcc-libs         # [win]
@@ -63,11 +56,36 @@ about:
     to the 'LGPL' licensed 'MPFR' (Multiple Precision Floating-Point Reliable) Library
     which itself is based on the 'GMP' (GNU Multiple Precision) Library.
   license_family: GPL3
+  license_file: '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-2'
+
 extra:
   recipe-maintainers:
     - dpryan79
-    - cbrueffer
     - johanneskoester
     - bgruening
     - daler
     - jdblischak
+    - cbrueffer
+    - dbast
+
+# Package: Rmpfr
+# Title: R MPFR - Multiple Precision Floating-Point Reliable
+# Version: 0.7-1
+# Date: 2018-07-24
+# DateNote: Previous CRAN version 0.7-0 on 2018-01-12
+# Type: Package
+# Author: Martin Maechler
+# Maintainer: Martin Maechler <maechler@stat.math.ethz.ch>
+# SystemRequirements: gmp (>= 4.2.3), mpfr (>= 3.0.0)
+# SystemRequirementsNote: 'MPFR' (MP Floating-Point Reliable Library, http://mpfr.org/) and 'GMP' (GNU Multiple Precision library, http://gmplib.org/), see >> README.md
+# Depends: gmp (>= 0.5-8), R (>= 3.3.0)
+# Imports: stats, utils, methods
+# Suggests: MASS, polynom, sfsmisc (>= 1.0-20), Matrix
+# SuggestsNote: MASS, polynom, sfsmisc: only for vignette; Matrix: test-tools
+# URL: http://rmpfr.r-forge.r-project.org/
+# Description: Arithmetic (via S4 classes and methods) for arbitrary precision floating point numbers, including transcendental ("special") functions.  To this end, the package interfaces to the 'LGPL' licensed 'MPFR' (Multiple Precision Floating-Point Reliable) Library which itself is based on the 'GMP' (GNU Multiple Precision) Library.
+# License: GPL (>= 2)
+# NeedsCompilation: yes
+# Packaged: 2018-07-24 13:15:37 UTC; maechler
+# Repository: CRAN
+# Date/Publication: 2018-07-30 16:10:22 UTC
