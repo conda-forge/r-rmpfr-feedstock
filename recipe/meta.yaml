@@ -12,10 +12,8 @@ source:
     - {{ cran_mirror }}/src/contrib/Archive/Rmpfr/Rmpfr_{{ version }}.tar.gz
   sha256: 3903d59c8b89b8c473c10917ac98425951c6029218a1267202ac23c53c3c7c26
 
-# There's some sort of issue with the gmp library on Windows
 build:
   merge_build_host: True  # [win]
-  skip: True  # [win]
   number: 2
   rpaths:
     - lib/R/lib/
