@@ -16,7 +16,7 @@ source:
 build:
   merge_build_host: True  # [win]
   skip: True  # [win]
-  number: 1
+  number: 2
   rpaths:
     - lib/R/lib/
     - lib/
@@ -52,7 +52,7 @@ test:
 
 about:
   home: http://rmpfr.r-forge.r-project.org/
-  license: GPL (>= 2)
+  license: GPL-2.0-or-later
   summary: Arithmetic (via S4 classes and methods) for arbitrary precision floating point numbers,
     including transcendental ("special") functions.  To this end, the package interfaces
     to the 'LGPL' licensed 'MPFR' (Multiple Precision Floating-Point Reliable) Library
