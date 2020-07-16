@@ -36,12 +36,14 @@ requirements:
   host:
     - r-base
     - r-gmp >=0.5_8
-    - mpfr
+    - mpfr        # [not win]
+    - m2w64-mpfr  # [win]
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-gmp >=0.5_8
-    - mpfr
+    - mpfr        # [not win]
+    - m2w64-mpfr  # [win]
 
 test:
   commands:
