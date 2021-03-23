@@ -1,4 +1,4 @@
-{% set version = "0.8-2" %}
+{% set version = "0.8-3" %}
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
 
@@ -10,7 +10,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/Rmpfr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/Rmpfr/Rmpfr_{{ version }}.tar.gz
-  sha256: 74f6af1738b2cd21e7f2564b4cc2c84d5473a3745ba88ec76355d07fdd61f700
+  sha256: 2a31ad989f5e1a1e6adcaeeea15d73be1818dd1739af438241e8f10419e73cd5
 
 build:
   merge_build_host: true  # [win]
