@@ -1,11 +1,22 @@
+About r-rmpfr-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rmpfr-feedstock/blob/main/LICENSE.txt)
+
 About r-rmpfr
-=============
+-------------
 
 Home: http://rmpfr.r-forge.r-project.org/
 
 Package license: GPL-2.0-or-later
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-rmpfr-feedstock/blob/main/LICENSE.txt)
+Summary: Arithmetic (via S4 classes and methods) for arbitrary precision floating point numbers, including transcendental ("special") functions.  To this end, the package interfaces to the 'LGPL' licensed 'MPFR' (Multiple Precision Floating-Point Reliable) Library which itself is based on the 'GMP' (GNU Multiple Precision) Library.
+About r-rmpfr
+-------------
+
+Home: http://rmpfr.r-forge.r-project.org/
+
+Package license: GPL-2.0-or-later
 
 Summary: Arithmetic (via S4 classes and methods) for arbitrary precision floating point numbers, including transcendental ("special") functions.  To this end, the package interfaces to the 'LGPL' licensed 'MPFR' (Multiple Precision Floating-Point Reliable) Library which itself is based on the 'GMP' (GNU Multiple Precision) Library.
 
