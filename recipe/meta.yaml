@@ -23,9 +23,7 @@ requirements:
     - r-gmp                        # [build_platform != target_platform]
     - {{ compiler('c') }}          # [not win]
     - {{ stdlib("c") }}            # [not win]
-    - {{ stdlib('c') }}            # [not win]
     - {{ compiler('m2w64_c') }}    # [win]
-    - {{ stdlib("m2w64_c") }}      # [win]
     - {{ stdlib('m2w64_c') }}      # [win]
     - {{ posix }}filesystem        # [win]
     - {{ posix }}sed               # [win]
@@ -40,15 +38,11 @@ requirements:
   host:
     - r-base
     - r-gmp >=0.5_8
-    - gmp                          # [not win]
-    - mpfr                         # [not win]
-    - gmp              # [win]
-    - mpfr             # [win]
+    - gmp
+    - mpfr
   run:
     - r-base
     - r-gmp >=0.5_8
-    - gmp              # [win]
-    - mpfr             # [win]
 
 test:
   commands:
