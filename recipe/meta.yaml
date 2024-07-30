@@ -40,14 +40,12 @@ requirements:
   host:
     - r-base
     - r-gmp >=0.5_8
-    - mpfr              # [not win]
-    - {{ native }}mpfr  # [win]
+    - {{ native }}mpfr
   run:
     - r-base
     - {{ native }}gcc-libs         # [win]
     - r-gmp >=0.5_8
-    - mpfr              # [not win]
-    - {{ native }}mpfr  # [win]
+    - {{ native }}mpfr
 
 test:
   commands:
