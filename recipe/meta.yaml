@@ -1,4 +1,4 @@
-{% set version = "1.0-0" %}
+{% set version = "1.1-1" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/Rmpfr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/Rmpfr/Rmpfr_{{ version }}.tar.gz
-  sha256: 9f82423a802855903939244a40f5616519a685a505900efdf36837505e077a50
+  sha256: 1f67af9baba9e9939db9757783b90caa6054035a0d27bbd07c8403b250294bd2
 
 build:
   number: 0
