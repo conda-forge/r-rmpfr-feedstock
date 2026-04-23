@@ -1,4 +1,4 @@
-{% set version = "1.1-1" %}
+{% set version = "1.1-2" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,13 +9,17 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/Rmpfr_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/Rmpfr/Rmpfr_{{ version }}.tar.gz
-  sha256: 1f67af9baba9e9939db9757783b90caa6054035a0d27bbd07c8403b250294bd2
+  sha256: d9f6caa4511afbf1465fee5edd2ae56869e496229dabd9f6e1a7e122e55ed5b4
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
+  missing_dso_whitelist:
+    - '*/R.dll'        # [win]
+    - '*/Rblas.dll'    # [win]
+    - '*/Rlapack.dll'  # [win]
 
 requirements:
   build:
@@ -37,12 +41,12 @@ requirements:
     - {{ posix }}zip               # [win]
   host:
     - r-base
-    - r-gmp >=0.5_8
+    - r-gmp >=0.6_1
     - gmp
     - mpfr
   run:
     - r-base
-    - r-gmp >=0.5_8
+    - r-gmp >=0.6_1
 
 test:
   commands:
